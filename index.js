@@ -1,7 +1,7 @@
 require("dotenv").config();
 
 const deepai = require("deepai");
-deepai.setApiKey(process.env.NFSW_API_KEY);
+deepai.setApiKey(process.env.NSFW_API_KEY);
 
 const Discord = require("discord.js");
 const client = new Discord.Client();
