@@ -5,12 +5,13 @@
   "main": "index.js",
   "scripts": {
     "devStart": "nodemon index.js",
-    "start":"node index.js"
+    "start": "node index.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.21.1",
     "deepai": "^1.0.17",
     "discord.js": "^12.5.3",
     "dotenv": "^10.0.0"
