@@ -19,6 +19,7 @@ async function is_nude(img_url) {
 }
 client.on("ready", () => {
   console.log("bot is ready");
+  client.channels.cache.find((channel) => console.log(channel));
 });
 
 client.on("message", (msg) => {
