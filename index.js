@@ -1,6 +1,6 @@
 require("dotenv").config();
-import { Detector } from "./gitwatch";
-let gitwatchClient = new Detector(requestEndPoint, github_token);
+const Client = require("./gitwatch");
+let gitwatchClient = new Client.Detector(requestEndPoint, github_token);
 const deepai = require("deepai");
 deepai.setApiKey(process.env.NSFW_API_KEY);
 
