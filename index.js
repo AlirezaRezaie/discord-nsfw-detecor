@@ -1,9 +1,10 @@
 require("dotenv").config();
 const Client = require("./gitwatch");
-let gitwatchClient = new Client.Detector(requestEndPoint, github_token);
-const deepai = require("deepai");
 const requestEndPoint = "https://api.github.com/repos/Minerova/SCWEC/commits";
 const github_token = "token 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";
+let gitwatchClient = new Client.Detector(requestEndPoint, github_token);
+const deepai = require("deepai");
+
 deepai.setApiKey(process.env.NSFW_API_KEY);
 
 const Discord = require("discord.js");
