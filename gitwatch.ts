@@ -1,6 +1,6 @@
 import axios from "axios";
 const requestEndPoint = "https://api.github.com/repos/Minerova/SCWEC/commits";
-const github_token = "token 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";
+const github_token = "token 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";
 
 class Detector {
   all_commits: number = 0;
