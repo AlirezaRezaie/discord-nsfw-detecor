@@ -1,7 +1,7 @@
 require("dotenv").config();
 const Client = require("./gitwatch");
 const requestEndPoint = "https://api.github.com/repos/Minerova/SCWEC/commits";
-const github_token = "Bearer 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";
+const github_token = "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";
 let gitwatchClient = new Client.Detector(requestEndPoint, github_token);
 const deepai = require("deepai");
 
