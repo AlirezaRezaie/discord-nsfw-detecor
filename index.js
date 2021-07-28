@@ -27,7 +27,7 @@ client.on("ready", () => {
     (channel) => channel.name === "programming-and-etc"
   );
   gitwatchClient.watchNewCommit((author, message) => {
-    channel.send(author, message);
+    channel.send(`${author} commited ${message}`);
   });
 });
 
