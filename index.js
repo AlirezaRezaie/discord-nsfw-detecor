@@ -1,5 +1,6 @@
 require("dotenv").config();
-
+const gitwatchClient = require("./gitwatch");
+let client = new gitwatchClient.Detector(requestEndPoint, github_token);
 const deepai = require("deepai");
 deepai.setApiKey(process.env.NSFW_API_KEY);
 
@@ -22,7 +23,10 @@ client.on("ready", () => {
   const channel = client.channels.cache.find(
     (channel) => channel.name === "programming-and-etc"
   );
-  channel.send("daw");
+
+  client.watchNewCommit((author, message) => {
+    channel.send(author, message);
+  });
 });
 
 client.on("message", (msg) => {

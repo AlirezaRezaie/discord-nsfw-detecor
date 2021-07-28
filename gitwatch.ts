@@ -2,7 +2,7 @@ import axios from "axios";
 const requestEndPoint = "https://api.github.com/repos/Minerova/SCWEC/commits";
 const github_token = "token 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";
 
-class Detector {
+export class Detector {
   all_commits: number = 0;
   endpoint: string;
   githubToken: string;
@@ -36,8 +36,3 @@ class Detector {
     });
   }
 }
-
-let client = new Detector(requestEndPoint, github_token);
-client.watchNewCommit((author: string, message: string) => {
-  console.log(author, message);
-});
