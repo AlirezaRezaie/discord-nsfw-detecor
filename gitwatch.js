@@ -39,9 +39,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.Detector = void 0;
 var axios_1 = __importDefault(require("axios"));
-var requestEndPoint = "https://api.github.com/repos/Minerova/SCWEC/commits";
-var github_token = "token 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";
 var Detector = /** @class */ (function () {
     function Detector(endpoint, githubToken) {
         this.all_commits = 0;
@@ -79,7 +78,4 @@ var Detector = /** @class */ (function () {
     };
     return Detector;
 }());
-var client = new Detector(requestEndPoint, github_token);
-client.watchNewCommit(function (author, message) {
-    console.log(author, message);
-});
+exports.Detector = Detector;
