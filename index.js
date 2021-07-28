@@ -22,7 +22,7 @@ client.on("ready", () => {
   const channel = client.channels.cache.find(
     (channel) => channel.name === "programming-and-etc"
   );
-  client.send("daw");
+  channel.send("daw");
 });
 
 client.on("message", (msg) => {
