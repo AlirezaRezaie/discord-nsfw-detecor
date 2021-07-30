@@ -1,8 +1,4 @@
 require("dotenv").config();
-const Client = require("./gitwatch");
-const requestEndPoint = "https://api.github.com/repos/Minerova/SCWEC/commits";
-const github_token = "token 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";
-let gitwatchClient = new Client.Detector(requestEndPoint, github_token);
 const deepai = require("deepai");
 
 deepai.setApiKey(process.env.NSFW_API_KEY);
@@ -23,12 +19,6 @@ async function is_nude(img_url) {
 }
 client.on("ready", () => {
   console.log("bot is ready");
-  const channel = client.channels.cache.find(
-    (channel) => channel.name === "programming-and-etc"
-  );
-  gitwatchClient.watchNewCommit((author, message) => {
-    channel.send(`${author} commited ${message}`);
-  });
 });
 
 client.on("message", (msg) => {

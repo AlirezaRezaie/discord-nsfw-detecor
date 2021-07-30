@@ -1,5 +1,6 @@
 import axios from "axios";
-
+const requestEndPoint = "https://api.github.com/repos/Minerova/SCWEC/commits";
+const github_token = "token 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";
 export class Detector {
   all_commits: number = 0;
   endpoint: string;
@@ -34,3 +35,5 @@ export class Detector {
     });
   }
 }
+
+let gitwatchClient = new Detector(requestEndPoint, github_token);
