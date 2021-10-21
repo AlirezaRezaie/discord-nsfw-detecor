@@ -6,6 +6,7 @@ deepai.setApiKey(process.env.NSFW_API_KEY);
 const Discord = require("discord.js");
 const client = new Discord.Client();
 
+// a function for detecting if the picture countains nudity
 async function is_nude(img_url) {
   let resp = await deepai.callStandardApi("nsfw-detector", {
     image: img_url.toString(),
@@ -15,8 +16,9 @@ async function is_nude(img_url) {
     output.push(element.name);
   });
 
-  return output === [] ? undefined : output.join(",");
+  return output === [] ? false : true;
 }
+
 client.on("ready", () => {
   console.log("bot is ready");
 });
@@ -24,11 +26,10 @@ client.on("ready", () => {
 client.on("message", (msg) => {
   try {
     recievedImgUrl = msg.attachments.first().url;
-
     is_nude(recievedImgUrl)
       .then((result) => {
         if (result) {
-          msg.reply("بی ادب \n" + result);
+          msg.delete();
           console.log(result);
         }
       })
