@@ -30,7 +30,7 @@ client.on("message", (msg) => {
       .then((result) => {
         if (result) {
           msg.delete();
-          console.log(result);
+          console.log("deleted");
         }
       })
       .catch(() => console.log("error"));
