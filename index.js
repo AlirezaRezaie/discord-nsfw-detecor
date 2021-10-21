@@ -15,8 +15,9 @@ async function is_nude(img_url) {
   resp.output.detections.forEach((element) => {
     output.push(element.name);
   });
+  console.log(output);
 
-  return output === [] ? false : true;
+  return output.length <= 0 ? false : true;
 }
 
 client.on("ready", () => {
@@ -28,7 +29,8 @@ client.on("message", (msg) => {
     recievedImgUrl = msg.attachments.first().url;
     is_nude(recievedImgUrl)
       .then((result) => {
-        if (result) {
+        console.log(result);
+        if (result === true) {
           msg.delete();
           console.log("deleted");
         }
