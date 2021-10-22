@@ -32,6 +32,11 @@ client.on("message", (msg) => {
         console.log(result);
         if (result === true) {
           msg.delete();
+          // TODO : implement check if user penalties are above 3
+          // so ban the player for 24 hour's
+
+          // TODO : implement addPenalty function with mongodb
+          database.addPenalty(msg.author.username);
           console.log("deleted");
         }
       })
